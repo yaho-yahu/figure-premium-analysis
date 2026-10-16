@@ -6,6 +6,8 @@
 - 2026-10-16 · 디자인: `DESIGN.md` (Jobright 스타일)
 - 2026-10-16 · 제작 요구사항: `yaho.md` — 모션그래픽 차트(manim/seaborn/anime.js), Google Flow 이미지, 계획→제작→검증 루프, GitHub Pages 배포
 - 2026-10-16 · 슬라이드 계획: `docs/03_slide_plan.md`
+- 2026-10-16 · 하이라이트 샘플 5장 배포: https://yaho-yahu.github.io/figure-premium-analysis/ (컨펌 대기)
+- 2026-10-16 · Google Flow 이미지는 보류(Chrome 연결 안 됨) → `.img-slot` 자리 비워둠
 
 ## ⏳ 보류 (데이터 수집 시 결정)
 - 분석할 IP 목록 (선정 기준: 애니/게임 원작 혼합, 구작/신작 혼합, 상품 수 충분)
