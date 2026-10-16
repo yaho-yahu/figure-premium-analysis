@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>굿즈 프리미엄 분석</title>
+<meta name="description" content="서브컬쳐 피규어 중고 프리미엄 요인 분석 — 주제 소개와 데이터분석 계획">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Inter:wght@300..700&family=Noto+Sans+KR:wght@300..800&display=swap">
+<link rel="stylesheet" href="assets/css/deck.css">
+</head>
+<body>
+<div class="stage">
+<main class="deck" id="deck">
+
+<!-- 1. 표지 -->
+<section class="slide bg-mint cover" data-anim="cover">
+  <div class="cover-left">
+    <span class="pill pill-ink-white a-in">데이터분석 입문 · 주제 발표</span>
+    <h1 class="display a-in">중고 피규어의<br>프리미엄은<br>어디서 올까?</h1>
+    <p class="lead a-in">서브컬쳐(애니·게임) 피규어의 중고 가격이<br>정가보다 오르는 이유를 데이터로 살펴봅니다</p>
+  </div>
+  <div class="cover-right">
+    <div class="img-slot a-in" style="height:300px">키비주얼 이미지<br>(Google Flow 생성 예정)</div>
+    <div class="price-card a-in">
+      <div class="row"><span class="price-from">예시 · 정가 30,000원</span><span class="price-badge" id="cover-badge">+200%</span></div>
+      <div class="price-num"><span id="cover-price">30,000</span><small>원</small></div>
+      <div class="price-track"><div class="base"></div><div class="extra" id="cover-extra"></div></div>
+    </div>
+  </div>
+  <div class="footer"><span>[이름] · [학번] · 2026.10</span><span class="pageno"></span></div>
+</section>
+
+<!-- 2. 프리미엄율 -->
+<section class="slide bg-white" data-anim="metric">
+  <div class="head">
+    <span class="pill pill-ink">핵심 지표</span>
+    <h2 class="display">프리미엄율 = (중고가 − 정가) ÷ 정가</h2>
+  </div>
+  <div class="metric-row">
+    <div class="video-card a-in"><video src="assets/media/premium_formula.mp4" muted playsinline preload="auto"></video></div>
+    <div class="why a-in">
+      <h3 class="display">왜 금액이 아니라 %로 볼까?</h3>
+      <div class="cmp">
+        <div class="cmp-top"><span class="cmp-label">A · 1만 원 → 2만 원</span><span class="cmp-pct" data-count="100">+0%</span></div>
+        <div class="cmp-bar"><div class="base"></div><div class="extra" style="width:200px"></div></div>
+      </div>
+      <div class="cmp">
+        <div class="cmp-top"><span class="cmp-label">B · 10만 원 → 11만 원</span><span class="cmp-pct" data-count="10">+0%</span></div>
+        <div class="cmp-bar"><div class="base"></div><div class="extra" style="width:20px"></div></div>
+      </div>
+      <p class="body a-late">둘 다 <b>1만 원</b> 올랐지만<br>프리미엄율은 <b>10배</b> 차이가 나요.<br>그래서 가격이 다른 피규어끼리도<br>공평하게 비교할 수 있어요.</p>
+    </div>
+  </div>
+  <div class="footer"><span class="tag-sim">예시 계산 · 0% 미만이면 정가보다 싸게 팔린 것(마이너스 프리미엄)</span><span class="pageno"></span></div>
+</section>
+
+<!-- 3. 범위 -->
+<section class="slide bg-mint" data-anim="scope">
+  <div class="head">
+    <span class="pill pill-ink">분석 범위</span>
+    <h2 class="display">피규어 유형 3가지 × 인기 작품 4~6개</h2>
+  </div>
+  <div class="criteria a-in">
+    <span class="label">작품 선정 기준</span>
+    <span class="chip">애니 원작 + 게임 원작</span><span class="chip">구작 + 신작</span><span class="chip">피규어 수가 충분한 작품</span>
+  </div>
+  <div class="matrix">
+    <div></div>
+    <div class="mx-col">[IP 1]</div><div class="mx-col">[IP 2]</div><div class="mx-col">[IP 3]</div><div class="mx-col">[IP 4]</div><div class="mx-col opt">[IP 5~6]</div>
+
+    <div class="mx-row"><div class="img-slot">이미지</div><div><div class="name">스케일</div><div class="desc">실제 비율로 줄인<br>고급 피규어</div></div></div>
+    <div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell opt">선택</div>
+
+    <div class="mx-row"><div class="img-slot">이미지</div><div><div class="name">넨도로이드</div><div class="desc">2~3등신<br>데포르메 피규어</div></div></div>
+    <div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell opt">선택</div>
+
+    <div class="mx-row"><div class="img-slot">이미지</div><div><div class="name">경품</div><div class="desc">쿠지·크레인 게임<br>경품 피규어</div></div></div>
+    <div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell"><span><b>20~30</b>개</span></div><div class="mx-cell opt">선택</div>
+  </div>
+  <div class="scope-foot a-late">
+    <div class="total">약 15개 그룹 × 20~30개 = 목표 <b><span id="scope-total">0</span>~450건</b></div>
+    <span class="ext">+ 확장 후보: 아크릴스탠드</span>
+  </div>
+  <div class="footer"><span class="tag-sim">작품 목록과 표본 수는 데이터 수집 후 확정</span><span class="pageno"></span></div>
+</section>
+
+<!-- 4. 가설 -->
+<section class="slide bg-white" data-anim="hyp">
+  <div class="head">
+    <span class="pill pill-ink">가설</span>
+    <h2 class="display">데이터로 확인할 5가지 질문</h2>
+  </div>
+  <div class="hyp-grid">
+    <div class="card hyp">
+      <span class="badge">H1</span>
+      <h3 class="display">한정판이면 더 비쌀까?</h3>
+      <svg viewBox="0 0 260 160" aria-label="일반판과 한정판의 프리미엄율 박스플롯 예시">
+        <line x1="20" y1="130" x2="245" y2="130" stroke="#c4c9cf" stroke-width="2"/>
+        <g class="h1-box" style="transform-origin:75px 130px">
+          <line x1="75" y1="115" x2="75" y2="70" stroke="#86909c" stroke-width="2"/>
+          <rect x="45" y="85" width="60" height="22" rx="4" fill="#d6dadf" stroke="#86909c" stroke-width="2"/>
+          <line x1="45" y1="97" x2="105" y2="97" stroke="#111" stroke-width="3"/>
+        </g>
+        <g class="h1-box" style="transform-origin:185px 130px">
+          <line x1="185" y1="95" x2="185" y2="16" stroke="#00b377" stroke-width="2"/>
+          <rect x="155" y="34" width="60" height="38" rx="4" fill="#00f0a0" stroke="#00b377" stroke-width="2"/>
+          <line x1="155" y1="52" x2="215" y2="52" stroke="#111" stroke-width="3"/>
+        </g>
+        <text x="75" y="154" text-anchor="middle">일반판</text>
+        <text x="185" y="154" text-anchor="middle">한정판</text>
+      </svg>
+      <p class="body">한정판과 일반판의 프리미엄율 비교</p>
+    </div>
+    <div class="card hyp">
+      <span class="badge">H2</span>
+      <h3 class="display">재판 소식이 나오면 값이 떨어질까?</h3>
+      <svg viewBox="0 0 260 160" aria-label="재판 발표 후 중고가가 떨어지는 선 그래프 예시">
+        <line x1="20" y1="130" x2="245" y2="130" stroke="#c4c9cf" stroke-width="2"/>
+        <line x1="140" y1="30" x2="140" y2="130" stroke="#5b6470" stroke-width="2" stroke-dasharray="6 6"/>
+        <text x="140" y="22" text-anchor="middle">재판 발표</text>
+        <path class="draw" d="M20,52 C50,48 80,56 100,50 S130,46 140,50 L158,100 C180,106 210,102 245,108" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <text x="132" y="154" text-anchor="middle">시간 →</text>
+      </svg>
+      <p class="body">재판 발표 전후의 중고가 변화</p>
+    </div>
+    <div class="card hyp">
+      <span class="badge">H3</span>
+      <h3 class="display">애니 새 시즌이 나오면 값이 오를까?</h3>
+      <svg viewBox="0 0 260 160" aria-label="새 시즌 발표 후 가격이 오르는 선 그래프 예시">
+        <line x1="20" y1="130" x2="245" y2="130" stroke="#c4c9cf" stroke-width="2"/>
+        <line x1="140" y1="30" x2="140" y2="130" stroke="#5b6470" stroke-width="2" stroke-dasharray="6 6"/>
+        <text x="140" y="22" text-anchor="middle">새 시즌 발표</text>
+        <path class="draw" d="M20,108 C50,112 80,104 100,110 S130,112 140,108 L158,62 C180,54 210,58 245,46" fill="none" stroke="#00b377" stroke-width="4" stroke-linecap="round"/>
+        <text x="132" y="154" text-anchor="middle">시간 →</text>
+      </svg>
+      <p class="body">방영·발표 시점 전후의 가격 비교</p>
+    </div>
+    <div class="card hyp">
+      <span class="badge">H4</span>
+      <h3 class="display">인기 캐릭터일수록 더 비쌀까?</h3>
+      <svg viewBox="0 0 260 160" aria-label="캐릭터 인기와 프리미엄율의 산점도 예시">
+        <line x1="20" y1="130" x2="245" y2="130" stroke="#c4c9cf" stroke-width="2"/>
+        <line x1="20" y1="14" x2="20" y2="130" stroke="#c4c9cf" stroke-width="2"/>
+        <g class="dots" fill="#111">
+          <circle cx="36" cy="112" r="5"/><circle cx="52" cy="100" r="5"/><circle cx="64" cy="114" r="5"/><circle cx="80" cy="92" r="5"/>
+          <circle cx="96" cy="98" r="5"/><circle cx="110" cy="80" r="5"/><circle cx="124" cy="88" r="5"/><circle cx="140" cy="68" r="5"/>
+          <circle cx="152" cy="76" r="5"/><circle cx="168" cy="56" r="5"/><circle cx="182" cy="64" r="5"/><circle cx="198" cy="44" r="5"/>
+          <circle cx="212" cy="50" r="5"/><circle cx="228" cy="30" r="5"/>
+        </g>
+        <path class="draw" d="M28,118 L238,32" stroke="#00b377" stroke-width="4" stroke-linecap="round"/>
+        <text x="132" y="154" text-anchor="middle">캐릭터 인기 →</text>
+      </svg>
+      <p class="body">같은 작품 안에서 캐릭터 인기와 가격의 관계</p>
+    </div>
+    <div class="card hyp">
+      <span class="badge">H5</span>
+      <h3 class="display">오래될수록 더 비싸질까?</h3>
+      <svg viewBox="0 0 260 160" aria-label="출시 후 시간에 따른 프리미엄율 추이 예시">
+        <line x1="20" y1="130" x2="245" y2="130" stroke="#c4c9cf" stroke-width="2"/>
+        <path class="draw" d="M20,118 L45,110 L65,114 L90,96 L110,100 L135,80 L155,84 L180,62 L200,66 L222,44 L245,38" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <text x="132" y="154" text-anchor="middle">출시 후 경과 기간 →</text>
+      </svg>
+      <p class="body">출시 후 지난 기간과 프리미엄율의 관계</p>
+    </div>
+  </div>
+  <div class="whatis a-late"><span class="pill pill-mint">가설이란?</span>데이터로 맞는지 확인해 볼 ‘예상 답’이에요. 틀려도 그 자체로 발견이에요.</div>
+  <div class="footer"><span class="tag-sim">그래프는 가상 데이터로 그린 개념 예시</span><span class="pageno"></span></div>
+</section>
+
+<!-- 5. 절차 -->
+<section class="slide bg-ink" data-anim="process">
+  <div class="head">
+    <span class="pill pill-mint">분석 절차</span>
+    <h2 class="display">분석은 이렇게 진행해요</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="top"><span class="num">01</span><span class="tag">크롤링</span></div><h3 class="display">모으기</h3><p class="body">가격·상품 정보 수집</p></div>
+    <div class="step"><div class="top"><span class="num">02</span><span class="tag">데이터 정제</span></div><h3 class="display">다듬기</h3><p class="body">환율 통일·이상치 제거</p></div>
+    <div class="step"><div class="top"><span class="num">03</span><span class="tag">EDA</span></div><h3 class="display">둘러보기</h3><p class="body">그래프로 분포 확인</p></div>
+    <div class="step"><div class="top"><span class="num">04</span><span class="tag">t-검정</span></div><h3 class="display">비교하기</h3><p class="body">차이가 우연인지 확인</p></div>
+    <div class="step"><div class="top"><span class="num">05</span><span class="tag">회귀분석</span></div><h3 class="display">설명하기</h3><p class="body">무엇이 가장 큰 요인?</p></div>
+  </div>
+  <div class="panels">
+    <div class="panel panel-eda" id="panel-eda"><span class="cap">03 둘러보기 미리보기 · 유형별 프리미엄율</span><img src="assets/img/eda_preview.svg" alt="피규어 유형별 프리미엄율 분포 박스플롯 (가상 데이터)"></div>
+    <div class="panel panel-reg" id="panel-reg"><span class="cap">05 회귀분석 미리보기</span><video src="assets/media/regression_fit.mp4" muted playsinline preload="auto"></video></div>
+  </div>
+  <div class="footer"><span class="tag-sim">※ 함께 움직인다(상관관계)고 원인(인과관계)인 것은 아니에요 · 차트는 가상 데이터</span><span class="pageno"></span></div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="nav-hint">← → 이동 · F 전체화면</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# 생성물 / 캐시
+.verify/
+.manim_media/
+/media/
+__pycache__/
+tools/node_modules/
+
+# 저작권·약관 이슈가 있을 수 있는 자료는 로컬에만
+references/images/*
+references/articles/*
+references/slides-examples/*
+data/raw/*
+!**/.gitkeep

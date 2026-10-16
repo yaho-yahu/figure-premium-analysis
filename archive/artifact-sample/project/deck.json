@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-16T12:00:00Z"},
+  "lists": "css",
+  "title": "굿즈 프리미엄 분석",
+  "order": ["cover", "metric", "scope", "hypotheses", "process"],
+  "sections": {
+    "s1": {"description": "주제 소개: 중고 피규어 프리미엄은 어디서 오는가", "start": "cover"},
+    "s2": {"description": "분석 계획: 지표, 범위, 가설, 절차", "start": "metric"}
+  },
+  "faces": {
+    "titillium-web": {"family": "Titillium Web", "href": "https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap"},
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap"},
+    "noto-sans-kr": {"family": "Noto Sans KR", "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300..800&display=swap"}
+  },
+  "designSystems": []
+}
