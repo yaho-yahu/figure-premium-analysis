@@ -15,7 +15,7 @@
   // 1920×1080 캔버스를 창 크기에 맞춤
   const fit = () => {
     const k = Math.min(innerWidth / 1920, innerHeight / 1080);
-    deck.style.transform = `scale(${k})`;
+    deck.style.transform = `translate(-50%, -50%) scale(${k})`;
   };
   addEventListener('resize', fit);
   fit();
