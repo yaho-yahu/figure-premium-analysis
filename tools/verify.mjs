@@ -33,6 +33,8 @@ for (let i = 0; i < count; i++) {
     const k = sb.width / 1920;
     for (const el of s.querySelectorAll('*')) {
       if (el.closest('svg') && el.tagName !== 'svg') continue;
+      if (el.closest('.ticker-track')) continue; // 흐르는 티커는 일부러 화면 밖까지 이어짐
+
       const r = el.getBoundingClientRect();
       if (!r.width || !r.height) continue;
       const name = `${el.tagName.toLowerCase()}${el.className && typeof el.className === 'string' ? '.' + el.className.split(' ')[0] : ''} "${(el.textContent || '').trim().slice(0, 20)}"`;

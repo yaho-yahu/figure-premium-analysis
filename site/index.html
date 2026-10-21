@@ -170,7 +170,75 @@
   <div class="footer"><span class="tag-sim">그래프는 가상 데이터로 그린 개념 예시</span><span class="pageno"></span></div>
 </section>
 
-<!-- 5. 절차 -->
+<!-- 5. 데이터 출처 -->
+<section class="slide bg-white" data-anim="sources">
+  <div class="head">
+    <span class="pill pill-ink">데이터 출처</span>
+    <h2 class="display">데이터는 어디서 모을까?</h2>
+  </div>
+  <div class="src-wrap">
+    <div class="src-list">
+      <div class="src-card"><span class="src-tag t-price">가격</span><div><div class="src-name">스루가야 (駿河屋)</div><div class="src-desc">일본 대형 중고 매장 · 중고가와 정가</div></div></div>
+      <div class="src-card"><span class="src-tag t-price">가격</span><div><div class="src-name">메루카리 · eBay</div><div class="src-desc">판매 완료(sold) 기록 · 실제로 팔린 가격</div></div></div>
+      <div class="src-card"><span class="src-tag t-price">가격</span><div><div class="src-name">번개장터 · 중고나라</div><div class="src-desc">국내 시세 · 이용약관 확인 후 수집</div></div></div>
+      <div class="src-card"><span class="src-tag t-info">상품 정보</span><div><div class="src-name">MyFigureCollection</div><div class="src-desc">정가 · 출시일 · 제조사 · 한정 여부</div></div></div>
+      <div class="src-card"><span class="src-tag t-pop">인기</span><div><div class="src-name">Google Trends · AniList · Pixiv</div><div class="src-desc">작품 검색량 · 캐릭터 인기 순위</div></div></div>
+    </div>
+    <svg class="src-links" viewBox="0 0 320 560" preserveAspectRatio="none" aria-hidden="true">
+      <path class="draw" d="M0,50 C170,50 150,280 320,280"/>
+      <path class="draw" d="M0,165 C170,165 150,280 320,280"/>
+      <path class="draw" d="M0,280 C170,280 150,280 320,280"/>
+      <path class="draw" d="M0,395 C170,395 150,280 320,280"/>
+      <path class="draw" d="M0,510 C170,510 150,280 320,280"/>
+      <g class="flow-dots"><circle r="7"/><circle r="7"/><circle r="7"/><circle r="7"/><circle r="7"/></g>
+    </svg>
+    <div class="src-hub">
+      <span class="pill pill-mint">우리 데이터셋</span>
+      <div class="hub-num">목표 300~<span id="hub-count">0</span><small>건</small></div>
+      <p class="body">피규어 1개 = 데이터 1줄<br>가격 · 상품 정보 · 인기를 한 줄로 합쳐요</p>
+      <div class="hub-legend a-late">
+        <div><span class="src-tag t-price">가격</span><b>3</b>곳</div>
+        <div><span class="src-tag t-info">상품 정보</span><b>1</b>곳</div>
+        <div><span class="src-tag t-pop">인기</span><b>3</b>곳</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span class="tag-sim">호가보다 판매 완료(sold) 가격을 우선 사용 · 수집은 각 사이트 이용약관 범위 안에서</span><span class="pageno"></span></div>
+</section>
+
+<!-- 6. 변수 -->
+<section class="slide bg-mint" data-anim="vars">
+  <div class="head">
+    <span class="pill pill-ink">변수 설계</span>
+    <h2 class="display">데이터 한 줄은 이렇게 생겼어요</h2>
+  </div>
+  <div class="card vtable-card">
+    <table class="vt">
+      <thead><tr>
+        <th>상품</th>
+        <th class="g-item">유형</th><th class="g-item">한정</th><th class="g-item">재판</th>
+        <th class="g-time">출시 후</th>
+        <th class="g-pop">작품 인기</th><th class="g-pop">캐릭터 인기</th>
+        <th class="g-item">정가</th><th>중고가</th><th class="g-y">프리미엄율</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>A · 1/7 스케일</td><td>스케일</td><td>O</td><td>X</td><td>26개월</td><td>92</td><td>88</td><td>180,000</td><td>432,000</td><td class="y" data-count="140">+0%</td></tr>
+        <tr><td>B · 넨도로이드</td><td>넨도</td><td>X</td><td>O</td><td>14개월</td><td>75</td><td>61</td><td>65,000</td><td>68,900</td><td class="y" data-count="6">+0%</td></tr>
+        <tr><td>C · 쿠지 경품</td><td>경품</td><td>X</td><td>X</td><td>8개월</td><td>81</td><td>70</td><td>15,000*</td><td>12,000</td><td class="y" data-count="-20">+0%</td></tr>
+        <tr><td>D · 1/7 스케일</td><td>스케일</td><td>O</td><td>X</td><td>40개월</td><td>64</td><td>93</td><td>210,000</td><td>735,000</td><td class="y" data-count="250">+0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="vgroups">
+    <div class="vg vg-y"><span class="vg-k">Y · 결과</span><h3 class="display">프리미엄율</h3><p class="body">설명하고 싶은 값</p></div>
+    <div class="vg"><span class="vg-k k-item">상품 특성</span><h3 class="display">유형 · 한정 · 재판 · 정가</h3><p class="body">+ 제조사, 상태 <span class="hl">H1 · H2</span></p></div>
+    <div class="vg"><span class="vg-k k-pop">인기</span><h3 class="display">작품 · 캐릭터 인기</h3><p class="body">검색량·순위 지수 <span class="hl">H3 · H4</span></p></div>
+    <div class="vg"><span class="vg-k k-time">시간</span><h3 class="display">출시 후 경과 기간</h3><p class="body">개월 수 <span class="hl">H5</span></p></div>
+  </div>
+  <div class="footer"><span class="tag-sim">표의 값은 가상 데이터 · * 경품은 정가가 없어 기준가 사용 · 인기는 0~100 지수</span><span class="pageno"></span></div>
+</section>
+
+<!-- 7. 절차 -->
 <section class="slide bg-ink" data-anim="process">
   <div class="head">
     <span class="pill pill-mint">분석 절차</span>
@@ -188,6 +256,90 @@
     <div class="panel panel-reg" id="panel-reg"><span class="cap">05 회귀분석 미리보기</span><video src="assets/media/regression_fit.mp4" muted playsinline preload="auto"></video></div>
   </div>
   <div class="footer"><span class="tag-sim">※ 함께 움직인다(상관관계)고 원인(인과관계)인 것은 아니에요 · 차트는 가상 데이터</span><span class="pageno"></span></div>
+</section>
+
+<!-- 8. 예상 이슈 -->
+<section class="slide bg-white" data-anim="issues">
+  <div class="head">
+    <span class="pill pill-ink">예상 이슈</span>
+    <h2 class="display">미리 생각해 둔 문제와 대응</h2>
+  </div>
+  <div class="issue-row">
+    <div class="issue-grid">
+      <div class="card issue"><span class="badge">01</span><h3 class="display">경품 피규어는 정가가 없어요</h3><div class="fix"><span class="arr">→</span><p class="body">쿠지 1회 가격이나 출시 직후 시세를 기준가로 사용</p></div></div>
+      <div class="card issue on"><span class="badge">02</span><h3 class="display">올려둔 가격 ≠ 팔린 가격</h3><div class="fix"><span class="arr">→</span><p class="body">판매 완료(sold) 가격을 우선 사용 (오른쪽 차트)</p></div></div>
+      <div class="card issue"><span class="badge">03</span><h3 class="display">그룹마다 표본이 적을 수 있어요</h3><div class="fix"><span class="arr">→</span><p class="body">작품을 고를 때 상품 수를 기준에 넣고 그룹당 20~30개 확보</p></div></div>
+      <div class="card issue"><span class="badge">04</span><h3 class="display">엔 · 달러 · 원화가 섞여 있어요</h3><div class="fix"><span class="arr">→</span><p class="body">거래한 날의 환율로 모두 원화로 바꿔서 비교</p></div></div>
+    </div>
+    <div class="panel panel-ask" id="panel-ask"><span class="cap">02 · 호가 vs 실제로 팔린 가격</span><img src="assets/img/ask_vs_sold.svg" alt="올려둔 가격과 실제로 팔린 가격의 프리미엄율 분포 비교 (가상 데이터)"></div>
+  </div>
+  <div class="footer"><span class="tag-sim">차트는 가상 데이터 · 호가만 쓰면 프리미엄이 실제보다 크게 보일 수 있어요</span><span class="pageno"></span></div>
+</section>
+
+<!-- 9. 한계 -->
+<section class="slide bg-ink" data-anim="limits">
+  <div class="head">
+    <span class="pill pill-mint">한계</span>
+    <h2 class="display">이 분석으로 말할 수 없는 것</h2>
+  </div>
+  <div class="limit-row">
+    <div class="limit-col limit-video">
+      <div class="panel panel-conf"><span class="cap">① 상관 ≠ 인과</span><video src="assets/media/confounder.mp4" muted playsinline preload="auto"></video></div>
+      <p class="body a-late">인기 캐릭터라서 한정판으로 나왔을 수도 있어요.<br>그래서 결과는 ‘원인’이 아니라 ‘함께 움직이는 경향’으로 말할게요.</p>
+    </div>
+    <div class="limit-col limit-surv">
+      <div class="panel panel-surv"><span class="cap">② 생존 편향</span>
+        <svg class="surv" viewBox="0 0 640 330" aria-label="전체 피규어 중 거래 기록이 남은 것만 데이터에 잡히는 모습"></svg>
+        <div class="surv-legend"><span><i class="dot on"></i>거래 기록 있음</span><span><i class="dot"></i>기록 없음 → 데이터에 안 잡힘</span></div>
+      </div>
+      <p class="body a-late">거래가 활발한 인기 굿즈만 남아서<br>프리미엄이 실제보다 높게 보일 수 있어요.</p>
+    </div>
+  </div>
+  <div class="footer"><span class="tag-sim">영상·그림은 개념 설명용 예시</span><span class="pageno"></span></div>
+</section>
+
+<!-- 10. 일정 -->
+<section class="slide bg-white" data-anim="schedule">
+  <div class="head">
+    <span class="pill pill-ink">일정</span>
+    <h2 class="display">앞으로 8주 계획</h2>
+  </div>
+  <div class="gantt">
+    <div></div>
+    <div class="wk now">10월 4주</div><div class="wk">11월 1주</div><div class="wk">11월 2주</div><div class="wk">11월 3주</div>
+    <div class="wk">11월 4주</div><div class="wk">12월 1주</div><div class="wk">12월 2주</div><div class="wk">12월 3주</div>
+
+    <div class="task">주제 · 계획 발표</div><div class="bar done" style="grid-column:2/3"></div>
+    <div class="task">작품 선정 · 수집 코드</div><div class="bar" style="grid-column:3/5"></div>
+    <div class="task">데이터 수집</div><div class="bar" style="grid-column:4/6"></div>
+    <div class="task">정제 · EDA</div><div class="bar" style="grid-column:6/7"></div>
+    <div class="task">그룹 비교 · 회귀분석</div><div class="bar" style="grid-column:7/9"></div>
+    <div class="task">사례 분석 · 결과 정리</div><div class="bar" style="grid-column:8/9"></div>
+    <div class="task">최종 발표</div><div class="bar goal" style="grid-column:9/10"><span>발표</span></div>
+
+    <div class="today"><span>지금</span></div>
+  </div>
+  <div class="footer"><span class="tag-sim">수업 일정에 맞춰 조정 예정</span><span class="pageno"></span></div>
+</section>
+
+<!-- 11. 마무리 -->
+<section class="slide bg-mint" data-anim="outro">
+  <div class="head">
+    <span class="pill pill-ink">정리</span>
+    <h1 class="display outro-title a-in">어떤 피규어가, 왜<br>정가보다 비싸질까?</h1>
+  </div>
+  <div class="sum-row">
+    <div class="sum"><span class="sum-k">지표</span><b>프리미엄율</b><p class="body">(중고가 − 정가) ÷ 정가</p></div>
+    <div class="sum"><span class="sum-k">데이터</span><b>300~450건</b><p class="body">유형 3 × 작품 4~6개</p></div>
+    <div class="sum"><span class="sum-k">방법</span><b>비교 + 회귀</b><p class="body">가설 5개를 데이터로 확인</p></div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>스케일 <b>+140%</b></span><span>넨도로이드 <b>+6%</b></span><span>쿠지 경품 <b class="neg">−20%</b></span><span>한정판 스케일 <b>+250%</b></span><span>재판 발표 후 <b class="neg">−35%</b></span><span>새 시즌 발표 후 <b>+48%</b></span>
+      <span>스케일 <b>+140%</b></span><span>넨도로이드 <b>+6%</b></span><span>쿠지 경품 <b class="neg">−20%</b></span><span>한정판 스케일 <b>+250%</b></span><span>재판 발표 후 <b class="neg">−35%</b></span><span>새 시즌 발표 후 <b>+48%</b></span>
+    </div>
+  </div>
+  <div class="footer"><span>감사합니다 · 질문 받을게요</span><span class="tag-sim">흐르는 숫자는 가상 예시 · <span class="pageno"></span></span></div>
 </section>
 
 </main>

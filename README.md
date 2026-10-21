@@ -34,10 +34,12 @@ cd tools && npm install && cd ..       # 검증용 (Chrome 설치 필요)
 ### 차트·영상 다시 만들기
 ```bash
 python src/charts/eda_preview.py
+python src/charts/ask_vs_sold.py
 
 cd src/manim
 python -m manim -qh --format=mp4 -o premium_formula --media_dir ../../.manim_media scenes.py PremiumFormula
 python -m manim -qh --format=mp4 -o regression_fit  --media_dir ../../.manim_media scenes.py RegressionFit
+python -m manim -qh --format=mp4 -o confounder      --media_dir ../../.manim_media scenes.py Confounder
 cp ../../.manim_media/videos/scenes/1080p60/*.mp4 ../../site/assets/media/
 ```
 

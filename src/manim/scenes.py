@@ -3,13 +3,14 @@
 렌더:
   python -m manim -qh --format=mp4 -o premium_formula src/manim/scenes.py PremiumFormula
   python -m manim -qh --format=mp4 -o regression_fit  src/manim/scenes.py RegressionFit
+  python -m manim -qh --format=mp4 -o confounder      src/manim/scenes.py Confounder
 결과는 media/ 아래 생성 → tools/render_manim.ps1 이 site/assets/media 로 복사
 """
 import numpy as np
 from manim import (
-    DOWN, LEFT, RIGHT, UP, UR, Axes, Brace, Create, DashedLine, Dot, FadeIn, GrowFromEdge,
-    LaggedStart, Line, Rectangle, Scene, SurroundingRectangle, Text, VGroup, ValueTracker,
-    Write, always_redraw, config,
+    DOWN, LEFT, RIGHT, UP, UR, Arrow, Axes, Brace, Create, DashedLine, Dot, FadeIn, GrowArrow,
+    GrowFromEdge, LaggedStart, Line, Rectangle, ReplacementTransform, Scene, SurroundingRectangle,
+    Text, VGroup, ValueTracker, Write, always_redraw, config,
 )
 
 FONT = "Malgun Gothic"
@@ -119,6 +120,44 @@ class RegressionFit(Scene):
         g = VGroup(pill, label).to_corner(UR, buff=0.55)
         self.play(FadeIn(g, shift=DOWN * 0.2), run_time=0.6)
         self.wait(2.0)
+
+
+class Confounder(Scene):
+    """상관 ≠ 인과: '한정판이라 비싸다'처럼 보여도 숨은 변수(캐릭터 인기)가 둘 다 만들 수 있음."""
+
+    def construct(self):
+        self.camera.background_color = "#1c1c1c"
+
+        def node(s, fill, color, pos):
+            label = kt(s, 40, color)
+            box = SurroundingRectangle(label, color=fill, fill_color=fill, fill_opacity=1,
+                                       corner_radius=0.35, buff=0.38)
+            return VGroup(box, label).move_to(pos)
+
+        limited = node("한정판 출시", "#2e2e2e", "#ffffff", [-4.0, -1.9, 0])
+        premium = node("높은 프리미엄", "#2e2e2e", "#ffffff", [4.0, -1.9, 0])
+        hidden = node("캐릭터 인기", MINT, INK, [0, 2.1, 0])
+
+        naive = Arrow(limited.get_right(), premium.get_left(), buff=0.25, color="#c9ced6",
+                      stroke_width=6, max_tip_length_to_length_ratio=0.08)
+        q = kt("한정판이라 비싸다?", 34, "#c9ced6").next_to(naive, UP, buff=0.3)
+
+        self.play(FadeIn(limited, shift=UP * 0.3), FadeIn(premium, shift=UP * 0.3), run_time=0.8)
+        self.play(GrowArrow(naive), Write(q), run_time=1.0)
+        self.wait(0.8)
+
+        # 숨은 변수 등장 → 진짜 화살표 두 개, 처음 화살표는 점선으로 약해짐
+        a1 = Arrow(hidden.get_bottom(), limited.get_top(), buff=0.25, color=MINT, stroke_width=7)
+        a2 = Arrow(hidden.get_bottom(), premium.get_top(), buff=0.25, color=MINT, stroke_width=7)
+        weak = DashedLine(naive.get_start(), naive.get_end(), color=MUTED, stroke_width=4, dash_length=0.2)
+        q2 = kt("?", 48, MUTED).next_to(weak, UP, buff=0.2)
+        self.play(FadeIn(hidden, scale=0.7), run_time=0.7)
+        self.play(GrowArrow(a1), GrowArrow(a2), run_time=1.0)
+        self.play(ReplacementTransform(naive, weak), ReplacementTransform(q, q2), run_time=0.8)
+
+        tag = kt("숨은 변수(교란 변수)", 30, MINT).next_to(hidden, RIGHT, buff=0.4)
+        self.play(FadeIn(tag, shift=LEFT * 0.2), run_time=0.6)
+        self.wait(2.5)
 
 
 config.background_color = "#ffffff"

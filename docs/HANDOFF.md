@@ -2,12 +2,13 @@
 
 > 다른 PC에서 이어서 작업할 때 이 파일부터 읽으세요. Claude Code에게는 "HANDOFF.md 읽고 이어서 하자"라고 말하면 됩니다.
 
-## 지금 상태 (2026-10-16)
+## 지금 상태 (2026-10-21)
 - ✅ 주제·분석 계획 확정 → `docs/01_topic.md`, `docs/02_plan.md`
-- ✅ 하이라이트 샘플 슬라이드 5장 제작·검증·배포 → https://yaho-yahu.github.io/figure-premium-analysis/
-- ⏳ **사용자 컨펌 대기** (모션 양·속도, 디자인·말투)
+- ✅ 슬라이드 **11장 전체** 제작·검증·배포 → https://yaho-yahu.github.io/figure-premium-analysis/
+  - 10/21 추가: 데이터 출처, 변수 설계, 예상 이슈(seaborn `ask_vs_sold`), 한계(manim `Confounder` + 생존 편향 점 그리드), 일정(간트), 마무리(티커)
+  - 10/21 수정: 브라우저 100% 배율(창 너비 < 1920)에서 슬라이드가 잘리던 문제
 - ⏳ Google Flow 이미지 4장 미생성 (자리만 있음)
-- ⏳ 나머지 슬라이드 미제작
+- ⏳ `[이름]·[학번]`, `[IP 1~6]` 미입력 · 일정의 최종 발표 주차 확인 필요
 
 ## 지금까지 한 일
 1. **주제 정하기**: 서브컬쳐 굿즈 프리미엄을 피규어(스케일/넨도로이드/경품) × 인기 IP 4~6개로 좁힘. 경품 피규어는 정가가 없다는 문제를 인지하고 있음(수집 때 기준가를 결정).
@@ -24,13 +25,12 @@
 8. **배포**: GitHub 저장소 생성, `main`에 push하면 Actions가 `site/`를 Pages에 자동 배포
 
 ## 다음에 할 일
-1. 샘플 5장 컨펌 받기 → 피드백 반영
-2. 나머지 슬라이드: 데이터 출처, 변수 설계, 예상 이슈(경품 정가 문제 등), 한계, 일정
-3. Google Flow 이미지 4장 → `site/assets/img/flow/`에 넣고 `.img-slot` 자리 교체
+1. 11장 전체 컨펌 받기 → 피드백 반영
+2. Google Flow 이미지 4장 → `site/assets/img/flow/`에 넣고 `.img-slot` 자리 교체
    - 표지 키비주얼 1장, 피규어 유형(스케일/넨도/경품) 3장
    - 저작권 문제를 피하려고 실존 캐릭터가 아닌 **오리지널 디자인**으로 생성
-4. 플레이스홀더 채우기: 표지 `[이름] · [학번]`, 범위 슬라이드 `[IP 1~6]`
-5. 제출: Pages URL
+3. 플레이스홀더 채우기: 표지 `[이름] · [학번]`, 범위 슬라이드 `[IP 1~6]`, 일정 슬라이드 최종 발표 주차
+4. 제출: Pages URL
 
 ## 새 PC 준비 체크리스트
 - [ ] `git clone https://github.com/yaho-yahu/figure-premium-analysis.git`
@@ -45,3 +45,6 @@
 - seaborn은 `set_theme(font="Malgun Gothic")`처럼 테마에 폰트를 지정해야 한글이 깨지지 않음. manim도 Malgun Gothic을 사용하므로 Windows 기준.
 - manim 출력물은 `.manim_media/`(git 제외)에 생기므로 `site/assets/media/`로 복사해야 함 (README 참고).
 - `deck.js`는 `?shot=1`을 붙이면 애니메이션 끝 상태로 바로 이동함 (검증 스크린샷용).
+- `deck.js`의 슬라이드별 builder가 반복 애니메이션(흐르는 점, 티커)을 배열로 return하면 슬라이드를 넘길 때 자동으로 멈춤.
+- anime.js v3는 `anime.stagger(..., { from: 'random' })`을 지원하지 않음 (타임라인 전체가 NaN이 되어 아무것도 안 보임). 무작위 순서는 `delay: el => ...`로 처리.
+- 검증은 1920×1080만 보므로, 노트북 크기(1536×730)도 따로 한 번 확인할 것.
