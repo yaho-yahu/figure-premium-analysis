@@ -25,12 +25,9 @@
 8. **배포**: GitHub 저장소 생성, `main`에 push하면 Actions가 `site/`를 Pages에 자동 배포
 
 ## 다음에 할 일
-1. 11장 전체 컨펌 받기 → 피드백 반영
-2. Google Flow 이미지 4장 → `site/assets/img/flow/`에 넣고 `.img-slot` 자리 교체
-   - 표지 키비주얼 1장, 피규어 유형(스케일/넨도/경품) 3장
    - 저작권 문제를 피하려고 실존 캐릭터가 아닌 **오리지널 디자인**으로 생성
-3. 플레이스홀더 채우기: 범위 슬라이드 `[IP 1~6]`, 일정 슬라이드 최종 발표 주차
-4. 제출: Pages URL
+2. 플레이스홀더 채우기: 범위 슬라이드 `[IP 1~6]`, 일정 슬라이드 최종 발표 주차
+3. 제출: Pages URL
 
 ## 새 PC 준비 체크리스트
 - [ ] `git clone https://github.com/yaho-yahu/figure-premium-analysis.git`
@@ -38,7 +35,7 @@
 - [ ] Node 24+: `cd tools && npm install` (검증용 playwright-core, **Chrome 설치 필요**)
 - [ ] `gh auth login` 후 `gh auth refresh -s workflow` (워크플로 파일 push 권한), `gh auth setup-git`
 - [ ] git 작성자 설정: `git config user.name yaho-yahu` + GitHub noreply 이메일
-- [ ] Google Flow 이미지 작업: Claude Code를 `claude --chrome`으로 실행하고 Chrome에서 Flow 로그인
+- [ ] Google Flow 작업 시: Chrome에 Claude in Chrome 확장 설치·로그인 후 `claude --chrome`으로 실행 (또는 `claude --chrome -p` 로 별도 실행)
 - [ ] git에 없는 파일은 따로 옮기기: `references/images|articles|slides-examples/`, `data/raw/` (저작권 때문에 제외)
 
 ## 알아둘 점
