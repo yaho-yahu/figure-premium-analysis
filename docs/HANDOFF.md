@@ -7,7 +7,7 @@
 - ✅ 슬라이드 **11장 전체** 제작·검증·배포 → https://yaho-yahu.github.io/figure-premium-analysis/
   - 10/21 추가: 데이터 출처, 변수 설계, 예상 이슈(seaborn `ask_vs_sold`), 한계(manim `Confounder` + 생존 편향 점 그리드), 일정(간트), 마무리(티커)
   - 10/21 수정: 브라우저 100% 배율(창 너비 < 1920)에서 슬라이드가 잘리던 문제
-- ⏳ Google Flow 이미지 4장 미생성 (자리만 있음)
+- ✅ Google Flow 이미지 4장 생성·삽입 (10/21) → `site/assets/img/flow/*.jpg`, 원본 PNG는 `references/images/flow/`(git 제외)
 - ⏳ `[IP 1~6]` 미입력 · 일정의 최종 발표 주차 확인 필요
 
 ## 지금까지 한 일

@@ -15,6 +15,7 @@
 7. (10/21) 브라우저 100% 배율에서 잘리던 문제 수정
 8. (10/21) 나머지 6장 추가 → 총 11장 (데이터 출처, 변수 설계, 예상 이슈, 한계, 일정, 마무리)
    - seaborn 차트 1개(호가 vs 실거래가), manim 영상 1편(상관 ≠ 인과) 추가
+9. (10/21) 표지 이름·학번 입력, Google Flow 이미지 4장 생성·삽입 (원본 PNG는 references/images/flow, git 제외)
 
 ■ 링크
 슬라이드: https://yaho-yahu.github.io/figure-premium-analysis/
@@ -22,8 +23,7 @@
 
 ■ 다음 할 일
 1. 11장 전체 컨펌 → 피드백 반영
-2. Google Flow 이미지 4장 (표지 1, 피규어 유형 3) - Chrome 연결 필요
-3. [IP 1~6], 최종 발표 주차 채우기 (이름·학번은 입력 완료)
+2. [IP 1~6], 최종 발표 주차 채우기 (이름·학번은 입력 완료)
 
 ■ 다른 PC에서 시작하는 법
 1. git clone https://github.com/yaho-yahu/figure-premium-analysis.git
